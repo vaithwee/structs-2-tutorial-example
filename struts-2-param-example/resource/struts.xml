@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="Param" namespace="/param" extends="struts-default">
+        <action name="receiveModel" class="xyz.vaith.action.ParamReceiveModelAction" method="login">
+
+        </action>
+        <action name="receiveProperty" class="xyz.vaith.action.ParamReceivePropertyAction" method="login">
+
+        </action>
+        <action name="receiveName" class="xyz.vaith.action.ParamReceiveNameAction" method="login">
+
+        </action>
+    </package>
+</struts>
