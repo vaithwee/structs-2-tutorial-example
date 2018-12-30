@@ -1,0 +1,32 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="p1" extends="struts-default" namespace="/n1">
+        <action name="chain" class="xyz.vaith.web.action.ChainAndRedirectAction" method="chain">
+            <result name="success" type="chain">result</result>
+        </action>
+        <action name="redirect" class="xyz.vaith.web.action.ChainAndRedirectAction" method="redirect">
+            <result name="success" type="redirectAction">result</result>
+        </action>
+        <action name="result" class="xyz.vaith.web.action.ResultAction" method="result">
+            <result name="success">/result.jsp</result>
+        </action>
+    </package>
+
+    <package name="p2" extends="struts-default" namespace="/n2">
+        <action name="chain" class="xyz.vaith.web.action.AnotherChainAndRedirectAction" method="chain">
+            <result name="success" type="chain">
+                <param name="namespace">/n1</param>
+                <param name="actionName">result</param>
+            </result>
+        </action>
+        <action name="redirect" class="xyz.vaith.web.action.AnotherChainAndRedirectAction" method="redirect">
+            <result name="success" type="redirectAction">
+                <param name="namespace">/n1</param>
+                <param name="actionName">result</param>
+            </result>
+        </action>
+    </package>
+</struts>
