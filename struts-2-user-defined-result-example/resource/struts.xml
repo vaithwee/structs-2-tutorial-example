@@ -2,15 +2,27 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-    <package name="p1" extends="struts-default">
+
+    <package name="result-package" extends="struts-default" abstract="true">
         <result-types>
             <result-type name="captcha" class="xyz.vaith.web.result.CAPTCHAResult"></result-type>
         </result-types>
+    </package>
+    <package name="p1" extends="result-package">
+
         <action name="code" class="xyz.vaith.web.action.CodeAction" method="code">
             <result type="captcha">
                 <!--依赖注入-->
                 <param name="width">200</param>
                 <param name="height">50</param>
+            </result>
+        </action>
+    </package>
+    <package name="p2" extends="result-package">
+        <action name="anotherCode" class="xyz.vaith.web.action.AnotherCodeAction" method="code">
+            <result type="captcha">
+                <param name="width">300</param>
+                <param name="height">80</param>
             </result>
         </action>
     </package>
