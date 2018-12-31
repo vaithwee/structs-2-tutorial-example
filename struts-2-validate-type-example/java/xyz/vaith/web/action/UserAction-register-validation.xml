@@ -1,0 +1,42 @@
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <validator type="requiredstring">
+        <param name="fieldName">username</param>
+        <message>The username cannot be blank</message>
+    </validator>
+    <validator type="requiredstring">
+        <param name="fieldName">password</param>
+        <message>The password length is 6-18</message>
+    </validator>
+    <validator type="stringlength">
+        <param name="fieldName">password</param>
+        <param name="minLength">6</param>
+        <param name="maxLength">18</param>
+        <message>The password length is 6-18</message>
+    </validator>
+    <field name="repassword">
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[ password == repassword]]>
+            </param>
+            <message>The passwords do not match</message>
+        </field-validator>
+    </field>
+
+    <validator type="int">
+        <param name="fieldName">age</param>
+        <param name="min">18</param>
+        <param name="max">100</param>
+        <message>must be eighteen years old</message>
+    </validator>
+    <validator type="email">
+        <param name="fieldName">email</param>
+        <message>The mailbox format is incorrect</message>
+    </validator>
+    <!--<validator type="requiredstring">-->
+        <!--<param name="fieldName">sex</param>-->
+        <!--<message>You have to choose your gender</message>-->
+    <!--</validator>-->
+</validators>
