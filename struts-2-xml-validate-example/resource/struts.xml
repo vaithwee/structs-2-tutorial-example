@@ -1,0 +1,27 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="xgv" extends="struts-default" namespace="/xgv">
+        <action name="register" class="xyz.vaith.web.action.XmlGlobalValidateAction" method="register">
+            <result name="success">/result.jsp</result>
+            <result name="input">/xmlGlobalValidate.jsp</result>
+        </action>
+
+        <action name="otherResult" class="xyz.vaith.web.action.XmlGlobalValidateAction" method="otherResult">
+            <result name="success">/result.jsp</result>
+            <result name="input">/xmlGlobalValidate.jsp</result>
+        </action>
+    </package>
+    <package name="lgv" extends="struts-default" namespace="/lgv">
+        <action name="register" class="xyz.vaith.web.action.XmlLocalValidateAction" method="register">
+            <result name="success">/result.jsp</result>
+            <result name="input">/xmlGlobalValidate.jsp</result>
+        </action>
+
+        <action name="otherResult" class="xyz.vaith.web.action.XmlLocalValidateAction" method="otherResult">
+            <result name="success">/result.jsp</result>
+            <result name="input">/xmlGlobalValidate.jsp</result>
+        </action>
+    </package>
+</struts>
