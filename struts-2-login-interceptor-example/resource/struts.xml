@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <package name="User" extends="struts-default">
+        <interceptors>
+            <interceptor name="checkLoginInterceptor" class="xyz.vaith.web.interceptor.CheckLoginInterceptor" />
+            <interceptor-stack name="MyDefaultInterceptor">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="checkLoginInterceptor" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="MyDefaultInterceptor" />
+
+        <global-results>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
+
+        <action name="login" class="xyz.vaith.web.action.LoginAction" method="login">
+            <interceptor-ref name="MyDefaultInterceptor">
+                <param name="checkLoginInterceptor.excludeMethods">login</param>
+            </interceptor-ref>
+            <result name="success" type="redirect">/main</result>
+            <result name="input">/login.jsp</result>
+        </action>
+
+        <action name="main" class="xyz.vaith.web.action.MainAction" method="main">
+            <result name="success">/WEB-INF/main.jsp</result>
+        </action>
+
+        <action name="studentList" class="xyz.vaith.web.action.StudentAction" method="list">
+            <result name="success">/WEB-INF/stuList.jsp</result>
+        </action>
+        <action name="teacherList" class="xyz.vaith.web.action.TeacherAction" method="list">
+            <result name="success">/WEB-INF/teaList.jsp</result>
+        </action>
+
+    </package>
+</struts>
