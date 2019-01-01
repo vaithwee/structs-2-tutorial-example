@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="greeting" extends="struts-default" >
+        <interceptors>
+            <interceptor name="MyInterceptorA" class="xyz.vaith.web.interceptor.MyInterceptorA" />
+            <interceptor name="MyInterceptorB" class="xyz.vaith.web.interceptor.MyInterceptorB" />
+        </interceptors>
+        <action name="greeting" class="xyz.vaith.web.action.GreetingAction" method="greeting">
+            <interceptor-ref name="MyInterceptorB" />
+            <interceptor-ref name="MyInterceptorA" />
+
+        </action>
+    </package>
+</struts>
