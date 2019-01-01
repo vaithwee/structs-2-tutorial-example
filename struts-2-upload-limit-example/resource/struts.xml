@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.multipart.maxSize" value="20480000" />
+    <constant name="struts.custom.i18n.resources" value="locale.message" />
+    <package name="File" extends="struts-default">
+        <action name="upload" class="xyz.vaith.web.action.UploadAction" method="upload">
+            <interceptor-ref name="defaultStack">
+                <param name="fileUpload.allowedTypes">image/jpeg</param>
+            </interceptor-ref>
+            <result name="input">/index.jsp</result>
+        </action>
+
+        <action name="uploadFiles" class="xyz.vaith.web.action.UploadFilesAction" method="uploadFiles">
+            <result name="input">/index.jsp</result>
+        </action>
+    </package>
+</struts>
