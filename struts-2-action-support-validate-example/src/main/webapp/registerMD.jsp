@@ -13,14 +13,7 @@
     <s:head></s:head>
 </head>
 <body>
-<s:form action="/register" method="POST">
-    <s:textfield name="username" label="Username" /><br />
-    <s:password name="password" label="Password" /><br />
-    <s:textfield name="portfolioName" label="Enter a name for your portfolio" /><br />
-    <s:submit value="Register" />
-</s:form>
-
-<s:form action="/objectedBackedRegister" method="POST">
+<s:form action="/modelDrivenRegister" method="POST">
     <s:textfield name="username" label="Username" /><br />
     <s:password name="password" label="Password" /><br />
     <s:textfield name="portfolioName" label="Enter a name for your portfolio" /><br />
